@@ -66,7 +66,7 @@ npm run lint
 
 The complete UI/UX design is available on Figma. All team members should reference this design during development to maintain consistency.
 
-**Figma Link:** `[INSERT_FIGMA_LINK_HERE]`
+**Figma Link:** `https://www.figma.com/design/49FzHjaxbrvl4bJ2bSfvAI/Untitled?node-id=0-1&t=GnZsAAonpc8pnGSi-1`
 
 ### Design Guidelines
 
