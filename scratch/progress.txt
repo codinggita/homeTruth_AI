@@ -5,3 +5,4 @@
 "feat/property-model created" 
 "feat/property-routes created" 
 "feat/property-controllers created" 
+"feat/service-provider-model created" 
