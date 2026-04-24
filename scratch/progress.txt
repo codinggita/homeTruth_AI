@@ -2,3 +2,4 @@
 "feat/user-model created" 
 "feat/auth-routes created" 
 "feat/auth-controllers created" 
+"feat/property-model created" 
