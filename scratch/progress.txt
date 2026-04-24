@@ -16,3 +16,4 @@
 "feat/frontend-assets-icons created" 
 "feat/frontend-assets-images created" 
 "feat/frontend-public-images created" 
+"feat/frontend-public-assets created" 
