@@ -26,3 +26,4 @@
 "feat/landing-layout created" 
 "feat/landing-hero-section created" 
 "feat/landing-stats-section created" 
+"feat/landing-animated-ui created" 
