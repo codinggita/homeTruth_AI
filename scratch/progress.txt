@@ -18,3 +18,4 @@
 "feat/frontend-public-images created" 
 "feat/frontend-public-assets created" 
 "feat/navbar-component created" 
+"feat/footer-component created" 
