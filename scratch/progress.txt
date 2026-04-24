@@ -19,3 +19,4 @@
 "feat/frontend-public-assets created" 
 "feat/navbar-component created" 
 "feat/footer-component created" 
+"feat/splash-screen created" 
