@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Mail, Lock, Eye, EyeOff, ArrowRight } from 'lucide-react';
-import { GoogleLogin } from '@react-oauth/google';
 import { setCredentials } from '../store/slices/authSlice';
 import api from '../services/api';
 import toast from 'react-hot-toast';
@@ -33,19 +32,6 @@ const LoginPage = () => {
     }
   };
 
-  const handleGoogleSuccess = async (credentialResponse) => {
-    try {
-      const response = await api.post('/auth/google-login', { 
-        idToken: credentialResponse.credential 
-      });
-      const { token, data } = response.data;
-      dispatch(setCredentials({ user: data.user, token }));
-      toast.success('Logged in with Google');
-      navigate('/dashboard');
-    } catch (error) {
-      toast.error('Google login failed');
-    }
-  };
 
   return (
     <div className="min-h-screen bg-[#0F0905] flex overflow-hidden">
@@ -160,24 +146,6 @@ const LoginPage = () => {
               </button>
             </form>
 
-            {/* Divider */}
-            <div className="flex items-center gap-3 my-6">
-              <div className="h-px flex-1 bg-white/5"></div>
-              <span className="text-[8px] text-white/20 font-black uppercase tracking-[0.2em]">or social login</span>
-              <div className="h-px flex-1 bg-white/5"></div>
-            </div>
-
-            {/* Google Login */}
-            <div className="flex justify-center scale-90 mb-6">
-              <GoogleLogin
-                onSuccess={handleGoogleSuccess}
-                onError={() => toast.error('Google Sign In failed')}
-                useOneTap
-                theme="dark"
-                width="250"
-                shape="pill"
-              />
-            </div>
 
             {/* Footer Link */}
             <p className="mt-8 text-center text-white/30 text-xs font-medium">
