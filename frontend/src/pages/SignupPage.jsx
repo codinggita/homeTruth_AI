@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { User as UserIcon, Mail, Phone, MapPin, Lock, ArrowRight, Eye, EyeOff, Camera } from 'lucide-react';
-import { GoogleLogin } from '@react-oauth/google';
 import { setCredentials } from '../store/slices/authSlice';
 import api from '../services/api';
 import toast from 'react-hot-toast';
@@ -56,19 +55,6 @@ const SignupPage = () => {
     }
   };
 
-  const handleGoogleSuccess = async (credentialResponse) => {
-    try {
-      const response = await api.post('/auth/google-login', { 
-        idToken: credentialResponse.credential 
-      });
-      const { token, data } = response.data;
-      dispatch(setCredentials({ user: data.user, token }));
-      toast.success('Signed in with Google');
-      navigate('/dashboard');
-    } catch (error) {
-      toast.error('Google signup failed');
-    }
-  };
 
   return (
     <div className="min-h-screen bg-[#0F0905] flex overflow-hidden selection:bg-amber-primary/30">
@@ -121,24 +107,6 @@ const SignupPage = () => {
             <p className="text-white/40 text-sm font-medium">Join our ecosystem of residents and partners.</p>
           </div>
 
-          {/* Social Signup */}
-          <div className="mb-8">
-            <div className="flex justify-center scale-90">
-              <GoogleLogin
-                onSuccess={handleGoogleSuccess}
-                onError={() => toast.error('Google Sign In failed')}
-                theme="dark"
-                width="250"
-                shape="pill"
-                text="signup_with"
-              />
-            </div>
-            <div className="flex items-center gap-4 my-6">
-              <div className="h-px flex-1 bg-white/5"></div>
-              <span className="text-[8px] text-white/20 font-black uppercase tracking-[0.2em]">or fill manually</span>
-              <div className="h-px flex-1 bg-white/5"></div>
-            </div>
-          </div>
 
           <form onSubmit={handleSignup} className="space-y-5 pb-6">
             {/* Avatar Upload */}

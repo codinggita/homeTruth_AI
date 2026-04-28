@@ -1,11 +1,9 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
-const { OAuth2Client } = require('google-auth-library');
 const sendEmail = require('../utils/email');
 const cloudinary = require('../utils/cloudinary');
 
-const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 const signToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -86,41 +84,6 @@ exports.login = async (req, res) => {
   }
 };
 
-exports.googleLogin = async (req, res) => {
-  try {
-    const { idToken } = req.body;
-    const ticket = await client.verifyIdToken({
-      idToken,
-      audience: process.env.GOOGLE_CLIENT_ID,
-    });
-
-    const { name, email, picture, sub } = ticket.getPayload();
-
-    let user = await User.findOne({ email });
-
-    if (!user) {
-      // Create user if doesn't exist
-      user = await User.create({
-        fullName: name,
-        email: email,
-        googleId: sub,
-        avatar: picture,
-        password: crypto.randomBytes(16).toString('hex'), // Random pass for google users
-      });
-    }
-
-    const token = signToken(user._id);
-
-    res.status(200).json({
-      status: 'success',
-      token,
-      data: { user },
-    });
-  } catch (err) {
-    console.error('GOOGLE LOGIN ERROR:', err);
-    res.status(500).json({ error: err.message });
-  }
-};
 
 exports.forgotPassword = async (req, res) => {
   try {
