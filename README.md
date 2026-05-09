@@ -1,5 +1,8 @@
 # 🏠 HomeTruth AI
 
+
+
+
 <div align="center">
 
 [![React](https://img.shields.io/badge/Frontend-React%2018%2B-blue?style=for-the-badge&logo=react)](https://react.dev)
@@ -526,3 +529,23 @@ Swaminarayan University, Kalol
 [▲ Back to Top](#-hometruth-ai)
 
 </div>
+
+---
+
+## ⚠️ PROPRIETARY — ALL RIGHTS RESERVED
+
+**Home Truth AI** is the sole and exclusive intellectual property of **Kamlesh Chandela**. 
+
+### Intellectual Property Notice:
+Unauthorized copying, redistribution, modification, or use of this project's **source code, unique ideas, business logic, UI/UX workflows, or system architecture** for any personal, commercial, or corporate purpose is strictly prohibited. 
+
+### Usage Restrictions:
+- **Commercial & Corporate Use**: You are **NOT** permitted to use any part of this project (including its concepts and logic) to build a product for a company, startup, or any commercial entity.
+- **Personal Projects**: You are **NOT** permitted to fork, copy, or recreate this work to build your own projects or competing services.
+- **Reference Only**: This repository is made public for **viewing and learning purposes only**. Access to this code does NOT grant any license, right, or permission to use, modify, or distribute this work in any form.
+
+Violation of these terms may result in legal action under the **Indian Copyright Act, 1957**, DMCA takedown requests, and claims for damages.
+
+**Contact for permissions or licensing:** [kamlesh.b.chandela.cg@gmail.com](mailto:kamlesh.b.chandela.cg@gmail.com)
+
+© 2026 Kamlesh Chandela. All Rights Reserved.

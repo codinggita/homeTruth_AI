@@ -1,3 +1,16 @@
+/**
+ * @project     Home Truth AI
+ * @author      Kamlesh Chandela
+ * @copyright   © 2026 Kamlesh Chandela. All Rights Reserved.
+ * @license     Proprietary — Unauthorized use strictly prohibited.
+ * @contact     kamlesh.b.chandela.cg@gmail.com
+ *
+ * This file is part of Home Truth AI — an original work by Kamlesh Chandela.
+ * Copying, modification, redistribution, training AI, or using the 
+ * ideas/logic of this work in any project or company is strictly prohibited.
+ */
+
+
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
@@ -222,3 +235,4 @@ exports.getProviders = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
