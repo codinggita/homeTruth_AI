@@ -1,3 +1,16 @@
+/**
+ * @project     Home Truth AI
+ * @author      Kamlesh Chandela
+ * @copyright   © 2026 Kamlesh Chandela. All Rights Reserved.
+ * @license     Proprietary — Unauthorized use strictly prohibited.
+ * @contact     kamlesh.b.chandela.cg@gmail.com
+ *
+ * This file is part of Home Truth AI — an original work by Kamlesh Chandela.
+ * Copying, modification, redistribution, training AI, or using the 
+ * ideas/logic of this work in any project or company is strictly prohibited.
+ */
+
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Globe, Share2, MessageCircle } from 'lucide-react';
@@ -45,11 +58,15 @@ const Footer = () => {
         </div>
       </div>
       
-      <div className="max-w-7xl mx-auto border-t border-white/10 mt-12 pt-8 text-center text-gray-500 text-sm">
-        <p>&copy; {new Date().getFullYear()} HomeTruth AI. All rights reserved.</p>
+                  <div className="max-w-7xl mx-auto border-t border-white/10 mt-12 pt-8 text-center text-gray-500 text-sm">
+        <p>© 2026 Kamlesh Chandela | Home Truth AI</p>
+        <p className="mt-1">All rights reserved. Unauthorized copying, redistribution, or commercial 
+        use of this project is strictly prohibited.</p>
+        <p className="mt-1">Contact: kamlesh.b.chandela.cg@gmail.com</p>
       </div>
     </footer>
   );
 };
 
 export default Footer;
+

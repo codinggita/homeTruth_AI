@@ -1,0 +1,44 @@
+PROPRIETARY SOFTWARE LICENSE
+
+Project:   Home Truth AI
+Author:    Kamlesh Chandela
+Email:     kamlesh.b.chandela.cg@gmail.com
+Year:      2026
+
+Copyright (c) 2026 Kamlesh Chandela. All Rights Reserved.
+
+This software, its source code, design, architecture, business logic,
+UI/UX workflows, and all associated intellectual property are the
+sole and exclusive property of Kamlesh Chandela.
+
+PUBLIC VISIBILITY NOTICE:
+This repository is made public for reference and portfolio purposes only.
+Public access does NOT grant any license, right, or permission to use,
+copy, modify, or distribute this work in any form.
+
+YOU ARE NOT PERMITTED TO:
+  - Copy or reproduce any part of this code
+  - Fork this repository for personal or commercial use
+  - **Recreate the UI, features, architecture, or business logic in another project or company**
+  - Use this codebase to build a competing product or service
+  - **Incorporate any unique ideas or workflows from this project into a commercial entity**
+  - Train any AI or machine learning model on this code
+  - Redistribute or sublicense any portion of this work
+  - Remove or alter copyright notices in any file
+  - Claim authorship of any part of this work
+
+PERMITTED:
+  - Viewing the code for learning and reference only
+  - Sharing the GitHub link with attribution to Kamlesh Chandela
+  - Contacting the author for collaboration or licensing
+
+VIOLATION OF THIS LICENSE MAY RESULT IN:
+  - DMCA takedown requests filed against infringing repositories
+  - Legal action under Indian Copyright Act, 1957
+  - Claims for damages, lost profits, and legal costs
+
+For licensing, collaboration, or permissions:
+kamlesh.b.chandela.cg@gmail.com
+
+© 2026 Kamlesh Chandela. All Rights Reserved.
+Home Truth AI is an original work. Unauthorized use is prohibited.
