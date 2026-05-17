@@ -16,7 +16,21 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, MapPin } from 'lucide-react';
 import ThreeViewer from './ThreeViewer';
 
-const ThreeViewerModal = ({ isOpen, onClose, title, address }) => {
+/**
+ * ThreeViewerModal
+ * 
+ * Props:
+ *  - isOpen    : boolean — modal open/close
+ *  - onClose   : function — close handler
+ *  - title     : string — property name
+ *  - address   : string — property address
+ *  - iframeUrl : string | null
+ *      → string: shows supersplat/iframe 3D view
+ *      → null  : shows Three.js 3D model
+ */
+const ThreeViewerModal = ({ isOpen, onClose, title, address, iframeUrl }) => {
+  const hasIframe = !!iframeUrl;
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -27,6 +41,7 @@ const ThreeViewerModal = ({ isOpen, onClose, title, address }) => {
           className="fixed inset-0 z-[200] flex items-center justify-center bg-black/90 backdrop-blur-md"
         >
           <div className="relative w-full h-full">
+
             {/* Close Button */}
             <button
               onClick={onClose}
@@ -44,19 +59,35 @@ const ThreeViewerModal = ({ isOpen, onClose, title, address }) => {
                     <MapPin size={12} /> {address}
                   </p>
                 )}
-                <p className="text-amber-primary text-xs font-bold mt-1 tracking-wider uppercase">Interactive 3D Tour</p>
+                <p className="text-amber-primary text-xs font-bold mt-1 tracking-wider uppercase">
+                  {hasIframe ? '🌐 Spatial 3D Tour' : '🎮 Interactive 3D Model'}
+                </p>
               </div>
             )}
 
-            {/* Controls Hint */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-[210] bg-black/50 backdrop-blur-md px-6 py-2 rounded-full border border-white/10 shadow-2xl text-xs text-gray-300 flex gap-6 pointer-events-none">
-              <span>🖱️ Drag to rotate</span>
-              <span>📜 Scroll to zoom</span>
+            {/* Controls Hint — only for Three.js model */}
+            {!hasIframe && (
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-[210] bg-black/50 backdrop-blur-md px-6 py-2 rounded-full border border-white/10 shadow-2xl text-xs text-gray-300 flex gap-6 pointer-events-none">
+                <span>🖱️ Drag to rotate</span>
+                <span>📜 Scroll to zoom</span>
+              </div>
+            )}
+
+            {/* 3D Content */}
+            <div className="w-full h-full rounded-lg overflow-hidden shadow-2xl">
+              {hasIframe ? (
+                <iframe
+                  src={iframeUrl}
+                  title="Spatial 3D Property Tour"
+                  allow="xr-spatial-tracking; fullscreen"
+                  className="w-full h-full border-0"
+                  style={{ display: 'block' }}
+                />
+              ) : (
+                <ThreeViewer />
+              )}
             </div>
 
-            <div className="w-full h-full rounded-lg overflow-hidden shadow-2xl">
-              <ThreeViewer />
-            </div>
           </div>
         </motion.div>
       )}
@@ -65,4 +96,3 @@ const ThreeViewerModal = ({ isOpen, onClose, title, address }) => {
 };
 
 export default ThreeViewerModal;
-

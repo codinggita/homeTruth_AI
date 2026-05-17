@@ -516,10 +516,12 @@ const HomeDetailPage = () => {
         onClose={() => setIsThreeViewOpen(false)}
         title={property?.title}
         address={property?.address}
+        iframeUrl={property?.threeDViewUrl || null}
       />
     </div>
   );
 };
 
 export default HomeDetailPage;
+
 

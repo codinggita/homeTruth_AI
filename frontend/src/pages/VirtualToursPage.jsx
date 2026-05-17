@@ -46,6 +46,11 @@ const VirtualToursPage = () => {
       tourCity.toLowerCase().includes(search.toLowerCase());
   });
 
+  // Get active tour details
+  const currentActiveTour = properties.find(t => t._id === activeTour);
+  // Get dynamic iframeUrl from property's database field (threeDViewUrl)
+  const activeIframeUrl = currentActiveTour?.threeDViewUrl || null;
+
   return (
     <div className="bg-[#0F0905] min-h-screen pt-32 pb-20 px-6 lg:px-12 selection:bg-amber-primary/30">
       <Helmet>
@@ -152,6 +157,15 @@ const VirtualToursPage = () => {
                   <div className="absolute top-4 left-4 md:top-6 md:left-6 px-3 py-1.5 md:px-4 md:py-2 rounded-xl md:rounded-2xl glass-panel border-white/10 text-[8px] md:text-[9px] font-black text-amber-primary uppercase tracking-[0.3em]">
                     {tour.propertyType || tour.type || 'Property'}
                   </div>
+
+                  {/* View Type Badge — dynamically checks database threeDViewUrl field */}
+                  <div className="absolute top-4 right-4 md:top-6 md:right-6 px-3 py-1.5 md:px-4 md:py-2 rounded-xl md:rounded-2xl bg-black/60 backdrop-blur-xl border border-white/10 text-[8px] md:text-[9px] font-black uppercase tracking-[0.2em] flex items-center gap-1.5">
+                    {tour.threeDViewUrl ? (
+                      <span className="text-emerald-400">● Spatial Tour</span>
+                    ) : (
+                      <span className="text-amber-primary">● 3D Model</span>
+                    )}
+                  </div>
                 </div>
 
                 {/* Content Area */}
@@ -178,11 +192,13 @@ const VirtualToursPage = () => {
                   <div className="flex flex-col sm:flex-row items-center justify-between pt-6 md:pt-8 border-t border-white/5 mt-auto gap-6">
                      <div className="flex items-center gap-4 md:gap-6 w-full sm:w-auto">
                         <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-amber-primary/10 border border-amber-primary/20 flex items-center justify-center text-amber-primary shrink-0">
-                          <Box size={20} md:size={24} />
+                          <Box size={20} />
                         </div>
                         <div>
                           <p className="text-[8px] md:text-[9px] text-white/20 font-black uppercase tracking-widest mb-1">Spatial Tech</p>
-                          <p className="text-xs md:text-sm text-white font-bold">Unreal Engine 5.4</p>
+                          <p className="text-xs md:text-sm text-white font-bold">
+                            {tour.threeDViewUrl ? 'Gaussian Splat' : 'Three.js Engine'}
+                          </p>
                         </div>
                      </div>
 
@@ -194,7 +210,7 @@ const VirtualToursPage = () => {
                       }}
                      >
                       Start Experience
-                      <ArrowRight size={18} md:size={20} className="group-hover/btn:translate-x-2 transition-transform" />
+                      <ArrowRight size={18} className="group-hover/btn:translate-x-2 transition-transform" />
                      </button>
                   </div>
                 </div>
@@ -208,12 +224,12 @@ const VirtualToursPage = () => {
       <ThreeViewerModal 
         isOpen={!!activeTour}
         onClose={() => setActiveTour(null)}
-        title={properties.find(t => t._id === activeTour)?.title}
-        address={properties.find(t => t._id === activeTour)?.address}
+        title={currentActiveTour?.title}
+        address={currentActiveTour?.address}
+        iframeUrl={activeIframeUrl}
       />
     </div>
   );
 };
 
 export default VirtualToursPage;
-
