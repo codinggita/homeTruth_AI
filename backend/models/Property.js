@@ -109,6 +109,10 @@ const propertySchema = new mongoose.Schema({
   lng: {
     type: Number
   },
+  threeDViewUrl: {
+    type: String,
+    default: ""
+  },
   nearbyPlaces: {
     hospitals: [{
       name: { type: String },
@@ -135,4 +139,3 @@ const propertySchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Property', propertySchema);
-
